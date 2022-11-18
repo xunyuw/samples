@@ -6,6 +6,7 @@ import 'dart:io';
 
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
 import 'package:menubar/menubar.dart' as menubar;
 import 'package:provider/provider.dart';
@@ -55,7 +56,7 @@ void setupWindow() {
 }
 
 class UnsplashSearchApp extends StatelessWidget {
-  const UnsplashSearchApp({Key? key}) : super(key: key);
+  const UnsplashSearchApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,17 +68,17 @@ class UnsplashSearchApp extends StatelessWidget {
 }
 
 class UnsplashHomePage extends StatelessWidget {
-  const UnsplashHomePage({required this.title, Key? key}) : super(key: key);
+  const UnsplashHomePage({required this.title, super.key});
   final String title;
 
   @override
   Widget build(BuildContext context) {
     final photoSearchModel = Provider.of<PhotoSearchModel>(context);
     menubar.setApplicationMenu([
-      menubar.Submenu(label: 'Search', children: [
-        menubar.MenuItem(
+      menubar.NativeSubmenu(label: 'Search', children: [
+        menubar.NativeMenuItem(
           label: 'Search…',
-          onClicked: () {
+          onSelected: () {
             showDialog<void>(
               context: context,
               builder: (context) =>
@@ -85,11 +86,18 @@ class UnsplashHomePage extends StatelessWidget {
             );
           },
         ),
+        if (!Platform.isMacOS)
+          menubar.NativeMenuItem(
+            label: 'Quit',
+            onSelected: () {
+              SystemNavigator.pop();
+            },
+          ),
       ]),
-      menubar.Submenu(label: 'About', children: [
-        menubar.MenuItem(
+      menubar.NativeSubmenu(label: 'About', children: [
+        menubar.NativeMenuItem(
           label: 'About',
-          onClicked: () {
+          onSelected: () {
             showDialog<void>(
               context: context,
               builder: (context) => const PolicyDialog(),

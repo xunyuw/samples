@@ -10,10 +10,10 @@ import 'package:platform_channels/src/counter_method_channel.dart';
 /// It has two [ElevatedButton]s to increment and decrement the value of
 /// [count], and a [Text] widget to display its value.
 class MethodChannelDemo extends StatefulWidget {
-  const MethodChannelDemo({Key? key}) : super(key: key);
+  const MethodChannelDemo({super.key});
 
   @override
-  _MethodChannelDemoState createState() => _MethodChannelDemoState();
+  State<MethodChannelDemo> createState() => _MethodChannelDemoState();
 }
 
 class _MethodChannelDemoState extends State<MethodChannelDemo> {
@@ -30,7 +30,7 @@ class _MethodChannelDemoState extends State<MethodChannelDemo> {
         children: [
           Text(
             'Value of count is $count',
-            style: Theme.of(context).textTheme.headline5,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(
             height: 16,

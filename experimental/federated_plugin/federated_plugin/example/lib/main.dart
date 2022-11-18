@@ -26,7 +26,7 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                 ? const SizedBox.shrink()
                 : Text(
                     'Battery Level: $batteryLevel',
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   ),
             const SizedBox(height: 16),
             ElevatedButton(

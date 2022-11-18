@@ -6,6 +6,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:window_size/window_size.dart';
 
 import 'src/basics/01_animated_container.dart';
@@ -158,7 +159,7 @@ final allRoutes = <String, WidgetBuilder>{
 };
 
 class AnimationSamples extends StatelessWidget {
-  const AnimationSamples({Key? key}) : super(key: key);
+  const AnimationSamples({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -174,11 +175,11 @@ class AnimationSamples extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final headerStyle = Theme.of(context).textTheme.headline6;
+    final headerStyle = Theme.of(context).textTheme.titleLarge;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Animation Samples'),
@@ -198,7 +199,7 @@ class HomePage extends StatelessWidget {
 class DemoTile extends StatelessWidget {
   final Demo demo;
 
-  const DemoTile({required this.demo, Key? key}) : super(key: key);
+  const DemoTile({required this.demo, super.key});
 
   @override
   Widget build(BuildContext context) {

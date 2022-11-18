@@ -141,14 +141,14 @@ class Contents extends StatelessWidget {
                 Text(
                   'Window is ${mediaInfo.size.width.toStringAsFixed(1)} x '
                   '${mediaInfo.size.height.toStringAsFixed(1)}',
-                  style: Theme.of(context).textTheme.headline5,
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 const SizedBox(height: 16),
                 Consumer<CounterModel>(
                   builder: (context, model, child) {
                     return Text(
                       'Taps: ${model.count}',
-                      style: Theme.of(context).textTheme.headline5,
+                      style: Theme.of(context).textTheme.headlineSmall,
                     );
                   },
                 ),
@@ -165,9 +165,9 @@ class Contents extends StatelessWidget {
                   onPressed: () async {
                     // Use the url_launcher plugin to open the Flutter docs in
                     // a browser.
-                    const url = 'https://flutter.dev/docs';
-                    if (await launcher.canLaunch(url)) {
-                      launcher.launch(url);
+                    final url = Uri.parse('https://flutter.dev/docs');
+                    if (await launcher.canLaunchUrl(url)) {
+                      await launcher.launchUrl(url);
                     }
                   },
                   child: const Text('Open Flutter Docs'),

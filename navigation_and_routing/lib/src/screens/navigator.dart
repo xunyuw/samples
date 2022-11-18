@@ -21,11 +21,11 @@ class BookstoreNavigator extends StatefulWidget {
 
   const BookstoreNavigator({
     required this.navigatorKey,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
-  _BookstoreNavigatorState createState() => _BookstoreNavigatorState();
+  State<BookstoreNavigator> createState() => _BookstoreNavigatorState();
 }
 
 class _BookstoreNavigatorState extends State<BookstoreNavigator> {
@@ -79,7 +79,7 @@ class _BookstoreNavigatorState extends State<BookstoreNavigator> {
                 var signedIn = await authState.signIn(
                     credentials.username, credentials.password);
                 if (signedIn) {
-                  routeState.go('/books/popular');
+                  await routeState.go('/books/popular');
                 }
               },
             ),

@@ -12,9 +12,9 @@ class BookDetailsScreen extends StatelessWidget {
   final Book? book;
 
   const BookDetailsScreen({
-    Key? key,
+    super.key,
     this.book,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,11 @@ class BookDetailsScreen extends StatelessWidget {
           children: [
             Text(
               book!.title,
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
             Text(
               book!.author.name,
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             TextButton(
               child: const Text('View author (Push)'),

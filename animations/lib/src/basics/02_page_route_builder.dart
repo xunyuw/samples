@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 
 class PageRouteBuilderDemo extends StatelessWidget {
-  const PageRouteBuilderDemo({Key? key}) : super(key: key);
+  const PageRouteBuilderDemo({super.key});
   static const String routeName = '/basics/page_route_builder';
 
   @override
@@ -50,7 +50,8 @@ class _Page2 extends StatelessWidget {
         title: const Text('Page 2'),
       ),
       body: Center(
-        child: Text('Page 2!', style: Theme.of(context).textTheme.headline4),
+        child:
+            Text('Page 2!', style: Theme.of(context).textTheme.headlineMedium),
       ),
     );
   }

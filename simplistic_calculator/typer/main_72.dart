@@ -142,7 +142,7 @@ final buttonDefinitions = <ButtonDefinition>[
 ];
 
 class CalculatorApp extends ConsumerWidget {
-  const CalculatorApp({Key? key}) : super(key: key);
+  const CalculatorApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -198,6 +198,7 @@ class CalculatorApp extends ConsumerWidget {
 }
 
 typedef CalculatorEngineCallback = void Function(CalculatorEngine engine);
+
 enum CalcButtonType { outlined, elevated }
 
 class CalcButton extends ConsumerWidget {

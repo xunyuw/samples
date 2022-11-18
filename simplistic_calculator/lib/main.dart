@@ -338,7 +338,7 @@ final buttonDefinitions = <ButtonDefinition>[
 ];
 
 class CalculatorApp extends ConsumerWidget {
-  const CalculatorApp({Key? key}) : super(key: key);
+  const CalculatorApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -448,15 +448,16 @@ class CalculatorApp extends ConsumerWidget {
 }
 
 typedef CalculatorEngineCallback = void Function(CalculatorEngine engine);
+
 enum CalcButtonType { outlined, elevated }
 
 class CalcButton extends ConsumerWidget {
   const CalcButton({
-    Key? key,
+    super.key,
     required this.op,
     required this.label,
     required this.type,
-  }) : super(key: key);
+  });
 
   final CalculatorEngineCallback op;
   final String label;
@@ -472,6 +473,8 @@ class CalcButton extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.all(4),
         child: buttonConstructor(
+          autofocus: false,
+          clipBehavior: Clip.none,
           onPressed: () => op(ref.read(calculatorStateProvider.notifier)),
           child: AutoSizeText(
             label,

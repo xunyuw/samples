@@ -11,8 +11,8 @@ import 'package:veggieseasons/styles.dart';
 class FrostedBox extends StatelessWidget {
   const FrostedBox({
     this.child,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Widget? child;
 
@@ -36,9 +36,9 @@ class ColorChangingIcon extends ImplicitlyAnimatedWidget {
     this.icon, {
     this.color = CupertinoColors.black,
     this.size,
-    required Duration duration,
-    Key? key,
-  }) : super(key: key, duration: duration);
+    required super.duration,
+    super.key,
+  });
 
   final Color color;
 
@@ -47,7 +47,8 @@ class ColorChangingIcon extends ImplicitlyAnimatedWidget {
   final double? size;
 
   @override
-  _ColorChangingIconState createState() => _ColorChangingIconState();
+  AnimatedWidgetBaseState<ColorChangingIcon> createState() =>
+      _ColorChangingIconState();
 }
 
 class _ColorChangingIconState
@@ -76,17 +77,15 @@ class _ColorChangingIconState
 
 /// A simple "close this modal" button that invokes a callback when pressed.
 class CloseButton extends StatefulWidget {
-  const CloseButton(this.onPressed, {Key? key}) : super(key: key);
+  const CloseButton(this.onPressed, {super.key});
 
   final VoidCallback onPressed;
 
   @override
-  CloseButtonState createState() {
-    return CloseButtonState();
-  }
+  State<CloseButton> createState() => _CloseButtonState();
 }
 
-class CloseButtonState extends State<CloseButton> {
+class _CloseButtonState extends State<CloseButton> {
   bool tapInProgress = false;
 
   @override

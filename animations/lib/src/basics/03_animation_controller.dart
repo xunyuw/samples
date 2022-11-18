@@ -5,11 +5,11 @@
 import 'package:flutter/material.dart';
 
 class AnimationControllerDemo extends StatefulWidget {
-  const AnimationControllerDemo({Key? key}) : super(key: key);
+  const AnimationControllerDemo({super.key});
   static const String routeName = '/basics/animation_controller';
 
   @override
-  _AnimationControllerDemoState createState() =>
+  State<AnimationControllerDemo> createState() =>
       _AnimationControllerDemoState();
 }
 
@@ -65,7 +65,7 @@ class _AnimationControllerDemoState extends State<AnimationControllerDemo>
               constraints: const BoxConstraints(maxWidth: 200),
               child: Text(
                 controller.value.toStringAsFixed(2),
-                style: Theme.of(context).textTheme.headline3,
+                style: Theme.of(context).textTheme.displaySmall,
                 textScaleFactor: 1 + controller.value,
               ),
             ),

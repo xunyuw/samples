@@ -20,13 +20,13 @@ class PhotoDetails extends StatefulWidget {
   const PhotoDetails({
     required this.photo,
     required this.onPhotoSave,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final Photo photo;
   final PhotoDetailsPhotoSaveCallback onPhotoSave;
 
   @override
-  _PhotoDetailsState createState() => _PhotoDetailsState();
+  State<PhotoDetails> createState() => _PhotoDetailsState();
 }
 
 class _PhotoDetailsState extends State<PhotoDetails> {
